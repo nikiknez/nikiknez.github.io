@@ -59,7 +59,7 @@ var viewer = pannellum.viewer('panorama', {
 	"draggable": false,
 	"disableKeyboardCtrl": true,
 	"showFullscreenCtrl": false,
-	"showControls": false,
+	"showControls": false
 });
 overlay.onmousemove = function(e) {
 	// console.log(e.x + " - " + e.y);
@@ -69,7 +69,9 @@ overlay.onmousemove = function(e) {
 	var yaw = e.x / pWidth * 360 - 180;
 	viewer.lookAt(pitch, yaw, viewer.getHfov(), false);
 }
-
+if (window.OrientationSensor) {
+	viewer.startOrientation();
+}
 </script>
 
 </body>
