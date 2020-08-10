@@ -59,7 +59,9 @@ var viewer = pannellum.viewer('panorama', {
 	"draggable": false,
 	"disableKeyboardCtrl": true,
 	"showFullscreenCtrl": false,
-	"showControls": false
+	"showControls": false,
+	"maxPitch": 60,
+	"minPitch": -60
 });
 overlay.onmousemove = function(e) {
 	// console.log(e.x + " - " + e.y);
