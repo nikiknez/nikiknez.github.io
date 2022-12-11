@@ -1,81 +1,101 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	
-	
-	<meta http-equiv="origin-trial" data-feature="Generic Sensors">
-        
-	
+    <meta http-equiv="origin-trial" data-feature="Generic Sensors">
     <title>Nikola Knezevic</title>
-    <link rel="stylesheet" href="pannellum.css"/>
+    <link rel="stylesheet" href="pannellum.css" />
     <script type="text/javascript" src="pannellum.js"></script>
-	
-	<style>
-		#panorama {
-			height: 100%;
-		}
-		html, body {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-		}
-		#overlay {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			margin: 0;
-			padding: 0;
-			background-color: rgba(0,0,0,0.7);
-			z-index: 10;
-		}
-	</style>
+
+    <style>
+        #panorama {
+            height: 100%;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
+
 <body>
+    <div id="panorama"></div>
+    <div id="console"></div>
 
-<div id="panorama"></div>
-<div id="console"></div>
-<div id="overlay"></div>
+    <script>
+        var consoleContainer = document.getElementById("console");
+        var consolee = {
+            log: function (arg) {
+                consoleContainer.innerHTML += arg + "<br/>";
+            }
+        };
+        var panorama = document.getElementById("panorama");
+        var viewer = pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "pano.jpg",
+            "autoLoad": true,
+            "showZoomCtrl": false,
+            "keyboardZoom": false,
+            "draggable": false,
+            "disableKeyboardCtrl": true,
+            "showFullscreenCtrl": false,
+            "showControls": false,
+            "maxPitch": 60,
+            "minPitch": -60,
 
-<script>
-var consoleContainer = document.getElementById("console");
-var panorama = document.getElementById("panorama");
-var overlay = document.getElementById("overlay");
-var consolee = {
-	log: function(arg) {
-		consoleContainer.innerHTML += arg + "<br/>";
-	}
-};
-console.log(window.AbsoluteOrientationSensor)
-var viewer = pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "pano.jpg",
-	"autoLoad": true,	
-	"showZoomCtrl": false,
-	"keyboardZoom": false,
-	"draggable": false,
-	"disableKeyboardCtrl": true,
-	"showFullscreenCtrl": false,
-	"showControls": false,
-	"maxPitch": 60,
-	"minPitch": -60
-});
-overlay.onmousemove = function(e) {
-	// console.log(e.x + " - " + e.y);
-	var pWidth = panorama.offsetWidth;
-	var pHeight = panorama.offsetHeight;
-	var pitch = 30 - e.y / pHeight * 60;
-	var yaw = e.x / pWidth * 360 - 180;
-	viewer.lookAt(pitch, yaw, viewer.getHfov(), false);
-}
-if (window.OrientationSensor) {
-	viewer.startOrientation();
-	viewer.setHfov(50);
-}
-</script>
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 0,
+                    "type": "info",
+                    "text": "Console Fire Game",
+                    "URL": "downloads/Console Fire Game.exe"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": -30,
+                    "type": "info",
+                    "text": "Kuglice",
+                    "URL": "downloads/Kuglice.jar"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": -60,
+                    "type": "info",
+                    "text": "Arkanoid",
+                    "URL": "downloads/Arkanoid.jar"
+                },
+                {
+                    "pitch": 0,
+                    "yaw": -90,
+                    "type": "info",
+                    "text": "Sve igrice",
+                    "URL": "downloads/index.html",
+                    // "cssClass": "custom-hotspot",
+                    // "createTooltipFunc": ()=>{},
+                }
+            ]
+        });
+        window.addEventListener("mousemove", function (e) {
+            var pWidth = panorama.offsetWidth;
+            var pHeight = panorama.offsetHeight;
+            var pitch = 30 - e.y / pHeight * 60;
+            var yaw = e.x / pWidth * 360 - 180;
+            viewer.lookAt(pitch, yaw, viewer.getHfov(), false);
+        });
+
+        console.log(window.AbsoluteOrientationSensor);
+        if (window.OrientationSensor) {
+            viewer.startOrientation();
+            viewer.setHfov(50);
+        }
+    </script>
 
 </body>
+
 </html>
