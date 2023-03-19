@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="pannellum.css" />
     <script type="text/javascript" src="pannellum.js"></script>
 
+    <script type="text/javascript" src="cvinfo.js"></script>
+
     <style>
         #panorama {
             height: 100%;
@@ -20,26 +22,48 @@
             margin: 0;
             padding: 0;
         }
+
+        .custom-hotspot {
+            border-radius: 20px;
+            height: 380px;
+            width: 300px;
+            background: transparent;
+        }
+        .custom-hotspot:hover {
+            background: white;
+            opacity: 0.8;
+        }
+
+        .custom-hotspot h2,h4,h6 {
+            color: gray;
+            text-align: center;
+        }
+
+        .custom-hotspot h3,h5 {
+            color: skyblue;
+            text-align: center;
+        }
+
+        .custom-hotspot * {
+            visibility: hidden;
+            margin: 10px 0px;
+        }
+        .custom-hotspot:hover * {
+            visibility: visible;
+        }
+
     </style>
 </head>
 
 <body>
     <div id="panorama"></div>
-    <div id="console"></div>
-
     <script>
-        var consoleContainer = document.getElementById("console");
-        var consolee = {
-            log: function (arg) {
-                consoleContainer.innerHTML += arg + "<br/>";
-            }
-        };
-        var panorama = document.getElementById("panorama");
         var viewer = pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama": "pano.jpg",
             "autoLoad": true,
             "showZoomCtrl": false,
+            "mouseZoom": false,
             "keyboardZoom": false,
             "draggable": false,
             "disableKeyboardCtrl": true,
@@ -50,43 +74,70 @@
 
             "hotSpots": [
                 {
-                    "pitch": 0,
-                    "yaw": 0,
-                    "type": "info",
-                    "text": "Console Fire Game",
-                    "URL": "downloads/Console Fire Game.exe"
+                    "pitch": -12,
+                    "yaw": -1,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": createContact,
+                    "scale": true,
                 },
                 {
-                    "pitch": 0,
-                    "yaw": -30,
-                    "type": "info",
-                    "text": "Kuglice",
-                    "URL": "downloads/Kuglice.jar"
+                    "pitch": -12,
+                    "yaw": -55,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": createEducation,
+                    "scale": true,
                 },
                 {
-                    "pitch": 0,
-                    "yaw": -60,
-                    "type": "info",
-                    "text": "Arkanoid",
-                    "URL": "downloads/Arkanoid.jar"
+                    "pitch": -12,
+                    "yaw": 50,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": createSkills,
+                    "scale": true,
                 },
                 {
-                    "pitch": 0,
-                    "yaw": -90,
-                    "type": "info",
-                    "text": "Sve igrice",
-                    "URL": "downloads/index.html",
-                    // "cssClass": "custom-hotspot",
-                    // "createTooltipFunc": ()=>{},
-                }
+                    "pitch": -12,
+                    "yaw": 95,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": createWorkExperience,
+                    "scale": true,
+                },
+                {
+                    "pitch": -12,
+                    "yaw": -100,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": createPersonalityAndInterests,
+                    "scale": true,
+                },
+                {
+                    "pitch": -12,
+                    "yaw": 150,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": createSchoolProjects,
+                    "scale": true,
+                },
+                {
+                    "pitch": -12,
+                    "yaw": -145,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": createSideProjects,
+                    "scale": true,
+                },
             ]
         });
+        var panorama = document.getElementById("panorama");
+
+        function wireWheel(div) {
+            div.addEventListener("wheel", function(we) {
+                document.getElementById("panorama").dispatchEvent(we);
+            });
+        }
         window.addEventListener("mousemove", function (e) {
             var pWidth = panorama.offsetWidth;
             var pHeight = panorama.offsetHeight;
             var pitch = 30 - e.y / pHeight * 60;
             var yaw = e.x / pWidth * 360 - 180;
             viewer.lookAt(pitch, yaw, viewer.getHfov(), false);
+            // console.log("yaw", yaw, "pitch", pitch);
         });
 
         console.log(window.AbsoluteOrientationSensor);
@@ -94,6 +145,8 @@
             viewer.startOrientation();
             viewer.setHfov(50);
         }
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
 
 </body>
