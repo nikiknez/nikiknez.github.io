@@ -40,27 +40,18 @@ function createWorkExperience(div) {
         <h6>Developing Android TV application (Java, Android) [Jun 2018. – Jun 2021.]</h6>";
 }
 
-function createSideProjects(div) {
-    div.innerHTML = "<h2>Side Projects</h2>\
+function createPersonalProjects(div) {
+    div.innerHTML = "<h2>Personal Projects</h2>\
         <h6>Extracting faces from MPEG video streams (Java, ffmpeg, OpenCV)</h6>\
-        <h6>Same song detection system (Java, Spring Boot) [not finished]</h6>\
-        <h6>2D Simulation of gravitational forces between planets (Android)</h6>\
         <h6>3D Simulation of the Solar System (C++, OpenGL)</h6>\
-        <h6>Mini games: Java (Swing), C++ (CLI games), Android (2D)</h6>";
-}
-
-function createSchoolProjects(div) {
-    div.innerHTML = "<h2>School Projects</h2>\
         <h6>Final BSc and MSc thesis – Web platform for detection and visualization of traffic conditions\
         using internet cameras and mobile devices (Spring Boot, Android, JavaScript, computer vision)</h6>\
         <h6>Designing and implementing point of sale software for a restaurant (Java, Android)</h6>\
         <h6>Developing a web application for the music festivals (JSF, SQL, Hibernate)</h6>\
         <h6>Crossword Puzzle solver (Java, AI)</h6>\
-        <h6>Developing compiler for Mikrojava programming language (Java)</h6>\
         <h6>Designing RISC processor on FPGA chip (VHDL)</h6>\
         <h6>Developing a JIT emulator for x86 machine (C)</h6>\
-        <h6>Developing a file system with synchronization (C++)</h6>\
-        <h6>OS Kernel, subsystem for threading management and synchronization (C++)</h6>";
+        <h6>Developing a file system with synchronization (C++)</h6>";
 }
 
 function createPersonalityAndInterests(div) {
