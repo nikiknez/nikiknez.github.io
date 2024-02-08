@@ -23,6 +23,18 @@
             padding: 0;
         }
 
+        .downloads-hotspot {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            width: 200px;
+            height: 250px;
+            background: white;
+            opacity: 0.8;
+        }
+
         .custom-hotspot {
             border-radius: 20px;
             height: 380px;
@@ -115,6 +127,13 @@
                     "createTooltipFunc": createPersonalityAndInterests,
                     "scale": true,
                 },
+                {
+                    "pitch": 20,
+                    "yaw": -45,
+                    "cssClass": "downloads-hotspot",
+                    "createTooltipFunc": createDownloadsLink,
+                    "scale": true,
+                },
             ]
         });
         var panorama = document.getElementById("panorama");
@@ -130,7 +149,7 @@
             var pitch = 30 - e.y / pHeight * 60;
             var yaw = e.x / pWidth * 360 - 180;
             viewer.lookAt(pitch, yaw, viewer.getHfov(), false);
-            // console.log("yaw", yaw, "pitch", pitch);
+            console.log("yaw", yaw, "pitch", pitch);
         });
 
         console.log(window.AbsoluteOrientationSensor);

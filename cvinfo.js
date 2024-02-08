@@ -1,7 +1,7 @@
 
 function createContact(div) {
     div.innerHTML = "<h2>Contact</h2>\
-        <h3>Address</h3> <h4>Belgrade, Bulevar Umetnosti 1</h4>\
+        <h3>Address</h3> <h4>Belgrade, Španskih Boraca 2</h4>\
         <h3>Email</h3> <h4>nikiknez@gmail.com</h4>";
 }
 
@@ -22,7 +22,7 @@ function createSkills(div) {
         <h5>Programming languages</h5>\
         <h6>Java, JavaScript, C, C++, Kotlin, Python, VHDL, x86 assembler</h6>\
         <h5>Web technologies</h5>\
-        <h6>HTML, CSS, React JS, JSP, JSF, Spring Boot, Node JS, AWS</h6>\
+        <h6>Spring Boot, Node JS, React JS, HTML, CSS, JSP, JSF, AWS</h6>\
         <h5>Other skills</h5>\
         <h6>Concurrent and Distributed Programming, Fundamentals of Digital Electronics,\
         Computer Architecture and Organization, Multiprocessor Systems</h6>";
@@ -30,19 +30,21 @@ function createSkills(div) {
 
 function createWorkExperience(div) {
     div.innerHTML = "<h2>Work Experience</h2>\
-        <h5>Web developer – freelance [February – Jun 2022.]</h4>\
-        <h6>Developing web application for recording and tracking state of fishery (JavaScript, React, Firebase, NoSQL)</h6>\
-        <h5>Android software developer - CodeMeUp [November 2021. – Present]</h4>\
+        <h5>Backend software developer - Code Me Up [March 2023. – March 2024]</h4>\
+        <h6>Developing spring boot microservices for hospitality PMS solution (Spring boot, MySQL, Redis, MinIO, ActiveMQ)</h6>\
+        <h5>Android software developer - Code Me Up [November 2021. – March 2023]</h4>\
         <h6>Developing Android TV application (Java, Android)</h6>\
+        <h5>Web developer – freelance [Jun 2021 – November 2021.]</h4>\
+        <h6>Developing web application for recording and tracking state of fishery (JavaScript, React, Firebase, NoSQL)</h6>\
         <h5>Embedded software developer - RT-RK [Jun 2016. – Jun 2021.]</h4>\
-        <h6>Developing production test software for media reciever devices (C) [Jun – Dec 2016.]</h6>\
+        <h6>Developing Android TV application (Java, Android) [Jun 2018. – Jun 2021.]</h6>\
         <h6>Integrating WebKit browser into media reciever platform (C++) [Jan 2017. – May 2018.]</h6>\
-        <h6>Developing Android TV application (Java, Android) [Jun 2018. – Jun 2021.]</h6>";
+        <h6>Developing production test software for media reciever devices (C) [Jun – Dec 2016.]</h6>";
 }
 
 function createPersonalProjects(div) {
     div.innerHTML = "<h2>Personal Projects</h2>\
-        <h6>Extracting faces from MPEG video streams (Java, ffmpeg, OpenCV)</h6>\
+        <h6>Extracting and matching faces from MPEG video streams (Java, ffmpeg, OpenCV)</h6>\
         <h6>3D Simulation of the Solar System (C++, OpenGL)</h6>\
         <h6>Final BSc and MSc thesis – Web platform for detection and visualization of traffic conditions\
         using internet cameras and mobile devices (Spring Boot, Android, JavaScript, computer vision)</h6>\
@@ -60,4 +62,14 @@ function createPersonalityAndInterests(div) {
         <h6>Fast learner, open for new technologies and expansion of knowledge</h6>\
         <h6>Areas of interest: TDD, computer vision, cloud technologies</h6>\
         <h6>Hobby: Enduro riding, BMX Freestyle, Football, Diving</h6>";
+}
+
+function createDownloadsLink(div) {
+    div.innerHTML = "<h2>Mini Games</h2>\
+                     <a href='downloads/Arkanoid.jar'>Arkanoid</a>\
+                     <a href='downloads/Console Fire Game.exe'>Console Fire</a>\
+                     <a href='downloads/Kuglice.jar'>Kuglice</a>\
+                     <a href='downloads/Planete.apk'>Planete</a>\
+                     <a href='downloads/Planete3D.zip'>Planete 3D</a>\
+                     <a href='downloads/Slagalica.jar'>Slagalica</a>";
 }
