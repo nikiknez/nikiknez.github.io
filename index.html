@@ -149,7 +149,7 @@
             var pitch = 30 - e.y / pHeight * 60;
             var yaw = e.x / pWidth * 360 - 180;
             viewer.lookAt(pitch, yaw, viewer.getHfov(), false);
-            console.log("yaw", yaw, "pitch", pitch);
+            // console.log("yaw", yaw, "pitch", pitch);
         });
 
         console.log(window.AbsoluteOrientationSensor);
